@@ -24,6 +24,9 @@ COPY assets/setup/ /app/setup/
 RUN chmod 755 /app/setup/install
 RUN /app/setup/install
 
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends sendmail
+
 COPY assets/config/ /app/setup/config/
 COPY assets/init /app/init
 RUN chmod 755 /app/init

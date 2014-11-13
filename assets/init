@@ -704,6 +704,10 @@ EOF
   esac
   crontab -u git /tmp/cron.git 2>/dev/null && rm -rf /tmp/cron.git
 
+  # start sendmail
+  echo "Starting sendmail..."
+  /usr/sbin/service sendmail start
+
   # start supervisord
   echo "Starting supervisord..."
   exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
